@@ -69,14 +69,14 @@ for(let i = 1;i<=100;i++){
 // Importante: El programa deberá identificar como verdadero tanto “Si”, como “SI”, como “si”.
 
 
-let resp;
-do {
-	resp = prompt("Ya merito llegamos? ").trim().toLowerLowerCase()=="si";
-	if ((resp)) {
-		console.log("Bienvenido a muy muy lejano");
-	}
-} while (!resp);
- 
+// let resp;
+// do {
+// 	resp = prompt("Ya merito llegamos? ").trim().toLowerLowerCase()=="si";
+// 	if ((resp)) {
+// 		console.log("Bienvenido a muy muy lejano");
+// 	}
+// } while (!resp);
+
 
 // ----------------------------------------------------------------
 // Piedra, Papel O Tijera.
@@ -98,57 +98,54 @@ do {
 //Papel:   2
 //Tijeras: 3
 
-let x; 
-let ganar;
-do {
-let y = Math.floor(Math.random()*3)+ 1;
- ganar = false;
-x = prompt("Seleccionar Piedra(1), Papel(2) o Tijera(3).").trim().toLowerCase()
+// let x; 
+// let ganar;
+// do {
+// let y = Math.floor(Math.random()*3)+ 1;
+//  ganar = false;
+// x = prompt("Seleccionar Piedra(1), Papel(2) o Tijera(3).").trim().toLowerCase()
 
-if (y == 1){
-    console.log("La computadora selecciono Piedra")
-}else if (y == 2){
-    console.log("La computadora selecciono Papel")
-}else{
-    console.log("La computadora selecciono Tijera")
-}
+// if (y == 1)console.log("La computadora selecciono Piedra")
+// if (y == 2)console.log("La computadora selecciono Papel")
+// if (y == 3)console.log("La computadora selecciono Tijera")
 
-switch(x){
-    case "piedra"://Piedra
-        console.log("El usuario a seleccionado Piedra")
-            if (y == 1){
-                console.log("empate")
-            }else if (y == 2){
-                console.log("gana computadora")
-                }else{
-                    console.log("gana usuario")
-                    ganar = true;
-                }
-          break;
-    case "papel"://Papel
-        console.log("El usuario a seleccionado papel");
-        if (y == 2){
-            console.log("empate")
-        }else if (y == 3){
-            console.log("gana computadora")
-            }else{
-                console.log("gana usuario")
-                ganar = true;
-            }
-        break;
-    case "tijera"://Tijera 
-        console.log("el usuario a seleccionado Tijera")
-        if (y == 3){
-            console.log("empate")
-        }else if (y == 1){
-            console.log("gana computadora")
-            }else{
-                console.log("gana usuario")
-                ganar = true;
-            }
-        break;
-}
-}while(!ganar)
+
+// switch(x){
+//     case "piedra"://Piedra
+//         console.log("El usuario a seleccionado Piedra")
+//             if (y == 1){
+//                 console.log("empate")
+//             }else if (y == 2){
+//                 console.log("gana computadora")
+//                 }else{
+//                     console.log("gana usuario")
+//                     ganar = true;
+//                 }
+//           break;
+//     case "papel"://Papel
+//         console.log("El usuario a seleccionado papel");
+//         if (y == 2){
+//             console.log("empate")
+//         }else if (y == 3){
+//             console.log("gana computadora")
+//             }else{
+//                 console.log("gana usuario")
+//                 ganar = true;
+//             }
+//         break;
+//     case "tijera"://Tijera 
+//         console.log("el usuario a seleccionado Tijera")
+//         if (y == 3){
+//             console.log("empate")
+//         }else if (y == 1){
+//             console.log("gana computadora")
+//             }else{
+//                 console.log("gana usuario")
+//                 ganar = true;
+//             }
+//         break;
+// }
+// }while(!ganar)
 
 
 
@@ -172,13 +169,13 @@ switch(x){
 
 
 
-let num = parseInt(prompt("Ingresa un número del 1 al 10:"))
-let randomNum = Math.floor(Math.random()*num)+ 1;
-let uNum = parseInt(prompt("Ingresa el número que crees que se genero:"))
-let acierto = false
-while (!acierto) {
-    
-}
+// let num = parseInt(prompt("Ingresa un número del 1 al 10:"))
+// let randomNum = Math.floor(Math.random()*num)+ 1;
+// let uNum = parseInt(prompt("Ingresa el número que crees que se genero:"))
+// let acierto = false
+// while (!acierto) {
+
+// }
 
 
 
@@ -190,3 +187,35 @@ while (!acierto) {
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
+
+
+
+
+let x;
+let continuar;
+do {
+    let y = Math.floor(Math.random() * 3) + 1;
+    let ppt = 0;
+    continuar = false;
+    x = prompt("Seleccionar Piedra(1), Papel(2) o Tijera(3).").trim().toLowerCase()
+    if (x == 'piedra') ppt = 1
+    if (x == 'papel') ppt = 2
+    if (x == 'tijera') ppt = 3
+
+    if (y == 1) console.log("La computadora selecciono Piedra")
+    if (y == 2) console.log("La computadora selecciono Papel")
+    if (y == 3) console.log("La computadora selecciono Tijera")
+
+    if (ppt == y) {
+        console.log("Empate");
+    } else if ((ppt > y && (ppt - y) == 1) || ppt == 1 && y == 3) {
+        console.log("Haz ganado");
+        ganar = true
+    } else {
+        console.log("Haz perdido");
+    }
+    continuar = prompt("Deseas continuar?(Si/No)").toLocaleLowerCase() == 'si'
+} while (continuar)
+
+
+
