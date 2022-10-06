@@ -26,10 +26,19 @@ function dividir(a, b) {
     return a / b
 }
 
-function calculadora(a, b, fn){
+function calculadora(a, b, fn) {
+
+    // return typeof (a) == undefined || typeof (b) == undefined || isNaN(a) || isNaN(b) ? 
+    // alert("Lo siento mi capacidad no pudo procesar tu operación.") : fn(a, b)
+
+    // if(!a && !b && !fn ){
+    //     return alert("No se puede realizar operacion")
+    // }
+
     
-    return typeof(a) == undefined || typeof(b) == undefined || isNaN(a) || isNaN(b) ? alert("Lo siento mi capacidad no pudo procesar tu operación."):fn(a,b)
+    return !a || !b || isNaN(a) || isNaN(b) ? 
+    alert("Lo siento mi capacidad no pudo procesar tu operación.") : fn(a, b)
 }
 
 
-const operacion = (fn,n1,n2) =>  fn(n1,n2)
+const operacion = (fn, n1, n2) => fn(n1, n2)
