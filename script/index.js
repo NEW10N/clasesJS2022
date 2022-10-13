@@ -4,13 +4,13 @@
 
 // ⚠️ Importante: Prestá atención al valor inicial del acumulador.
 
-/* let numbers = [6, 1, 34, 94, 3, 17];
+//  let numbers = [6, 1, 34, 94, 3, 17];
 
-const mul = numbers.reduce((acumulador,value) =>{
-    return acumulador * value
-});// CODEA LA SOLUCIÓN
+// const mul = numbers.reduce((acumulador,value) =>{
+//     return acumulador * value
+// });// CODEA LA SOLUCIÓN
 
-console.log(mul); */
+// console.log(mul); 
 // debería mostrar 977976
 
 // ----------------------------------------------
@@ -31,12 +31,12 @@ console.log(impares) // [3, 7, 13, 99] */
 // Ejercicio 3
 // Teniendo un Arreglo de números (llamado numbers), usá .reduce() para obtener el máximo valor que posea el Arreglo.
 
-let numbers = [5, 4, 1, 9, 2]
+// let numbers = [5, 4, 1, 9, 2]
 
-let max = numbers.reduce((max, value) => {
-    if (value > max) max = value
-    return max
-});
+// let max = numbers.reduce((max, value) => {
+//     if (value > max) max = value
+//     return max
+// });
 
 // console.log(max)
 // debería mostrar 9
@@ -46,14 +46,14 @@ let max = numbers.reduce((max, value) => {
 // Ejercicio 4
 // Completá la Función join que reciba un Arreglo de números y retorne un String con todos los números concatenados. Usa reduce
 
-/* const arr = [1, 2, 3]
+//  const arr = [1, 2, 3]
 
-let join = arr => {
-    let result
-    return result = arr.reduce((acum, element) => acum + element, "")
-}
+// let join = arr => {
+//     let result
+//     return result = arr.reduce((acum, element) => acum + element, "")
+// }
 
- console.log( join( [1,2,3] ) ) // "123" */
+//  console.log( join( [1,2,3] ) ) // "123" 
 
 // ----------------------------------------------
 // Ejercicio 5
@@ -62,12 +62,12 @@ let join = arr => {
 // show hint
 // 👩🏻‍💻👨‍💻 El método indexOf() puede ayudarte. Para más información, accedé a la documentación de Mozilla.
 
-let numeros = [5, 1, 7, 12, 5, 2, 9, 0, 11, 9, 11]
-let sinRepetidos = numeros.reduce((arrUnicos, value) => {
-    if (arrUnicos.indexOf(value) < 0) arrUnicos.push(value)
-    return arrUnicos
-}, []);
-console.log(sinRepetidos)
+// let numeros = [5, 1, 7, 12, 5, 2, 9, 0, 11, 9, 11]
+// let sinRepetidos = numeros.reduce((arrUnicos, value) => {
+//     if (arrUnicos.indexOf(value) < 0) arrUnicos.push(value)
+//     return arrUnicos
+// }, []);
+// console.log(sinRepetidos)
 // debería mostrar [ 5, 1, 7, 12, 2, 9, 0, 11 ]
 
 
@@ -238,7 +238,33 @@ const mix = [
 
 let soloStrings = mix.filter(string => typeof (string) == 'string')
 
-console.log(soloStrings);
+// let soloStrings2 = mix.filter(value =>{
+//     return typeof(value) == 'string'
+// })
+
+// let soloStrings2 = mix.filter(function(value){
+//     return typeof(value) == 'string'
+// })
+
+// let soloStrings2 = mixExample => {
+//     return mixExample.filter(value =>{
+//         return typeof(value)=='string'
+//     })
+// }
+
+let UpperCaseStrings = mix.filter((value) =>{
+    return typeof(value)=='string'
+}).map(value => value.toUpperCase())
+
+// UpperCaseStrings.forEach(imprimir)
+
+// function imprimir(value){
+//     console.log(value);
+// }
+
+// UpperCaseStrings.forEach(value=> console.log(value))
+// console.log(soloStrings);
+// console.log(soloStrings2);
 // Debería mostrar
 // [ 'Ut vero.', 'Diam rebum nonumy et.', 'Kasd stet.', 'Sit et dolor.', 'Dolore.' ]
 // ----------------------------------------------
