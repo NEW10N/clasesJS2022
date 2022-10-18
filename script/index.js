@@ -1,316 +1,252 @@
-// ejercicios
+/* const tenis={
+    marca:"nike",
+    color:"blancas",
+    talle:33
+}
 
-// Teniendo un Arreglo de números al azar (llamado numbers), usá .reduce() para obtener la multiplicación total de todos los números.
+Object.keys(tenis)
+Object.values(tenis)
 
-// ⚠️ Importante: Prestá atención al valor inicial del acumulador.
-
-//  let numbers = [6, 1, 34, 94, 3, 17];
-
-// const mul = numbers.reduce((acumulador,value) =>{
-//     return acumulador * value
-// });// CODEA LA SOLUCIÓN
-
-// console.log(mul); 
-// debería mostrar 977976
-
-// ----------------------------------------------
-
-// Ejercicio 2
-// Teniendo un Arreglo de números en la variable numeros, usá .reduce() para crear un nuevo Arreglo que contenga solo los números impares.
-
-/* let numeros = [3, 7, 6, 13, 2, 24, 99];
-
-let impares = numeros.reduce((acum, element) => {
-    if (element % 2 != 0) acum.push(element)
-    return acum
-}, [])
-
-console.log(impares) // [3, 7, 13, 99] */
-
-
-// Ejercicio 3
-// Teniendo un Arreglo de números (llamado numbers), usá .reduce() para obtener el máximo valor que posea el Arreglo.
-
-// let numbers = [5, 4, 1, 9, 2]
-
-// let max = numbers.reduce((max, value) => {
-//     if (value > max) max = value
-//     return max
-// });
-
-// console.log(max)
-// debería mostrar 9
-
-// ----------------------------------------------
-
-// Ejercicio 4
-// Completá la Función join que reciba un Arreglo de números y retorne un String con todos los números concatenados. Usa reduce
-
-//  const arr = [1, 2, 3]
-
-// let join = arr => {
-//     let result
-//     return result = arr.reduce((acum, element) => acum + element, "")
-// }
-
-//  console.log( join( [1,2,3] ) ) // "123" 
-
-// ----------------------------------------------
-// Ejercicio 5
-// Teniendo un Arreglo de números en la variable numeros, usá .reduce() para crear un Arreglo con los mismos números pero eliminando los repetidos.
-
-// show hint
-// 👩🏻‍💻👨‍💻 El método indexOf() puede ayudarte. Para más información, accedé a la documentación de Mozilla.
-
-// let numeros = [5, 1, 7, 12, 5, 2, 9, 0, 11, 9, 11]
-// let sinRepetidos = numeros.reduce((arrUnicos, value) => {
-//     if (arrUnicos.indexOf(value) < 0) arrUnicos.push(value)
-//     return arrUnicos
-// }, []);
-// console.log(sinRepetidos)
-// debería mostrar [ 5, 1, 7, 12, 2, 9, 0, 11 ]
-
-
-
-// Ejercicio 6
-// Teniendo un Arreglo llamado notasDeTPs(con números del 1 al 10), usá .reduce() para calcular la nota promedio final de todos los trabajos prácticos de este curso.
-
-// show hint
-// 🤓 Recordá que el promedio se calcula sumando todas las notas y dividiéndolo por la cantidad total.
-
-// let notasDeTPs = [4, 7, 8, 5, 10]
-// let notaFinal = notasDeTPs.reduce((prom, value) =>{
-//     return prom += value
-// }, 0)/ notasDeTPs.length
-
-// console.log(notaFinal)
-// debería mostrar 6.8
-
-
-
-// ----------------------------------------------
-// Ejercicio 1
-// Tenemos un arreglo de números en la variable numbers y deberás crear uno nuevo que contenga el doble de cada número, usando .map().
-
-// let numbers = [3, 7, 13, 99];!
-
-
-// ----------------------------------------------
-// Ejercicio 2
-// Tenemos un arreglo en la variable frases con varias sentencias al azar. Usá la función map() para que cada frase empiece y termine con signos de exclamación.
-
-/* let frases = ['Labore sea dolor.', 'Justo rebum dolor.', 'Stet lorem amet.'];
-
-// CODEA LA SOLUCIÓN
-
-let frasesExclamadas = frases.map(value => {
-    return `¡${value}!`}) */
-
-// console.log(frases); // ['Labore sea dolor.', 'Justo rebum dolor.', 'Stet lorem amet.']
-//  console.log(frasesExclamadas); // [ '¡Labore sea dolor.!', '¡Justo rebum dolor.!', '¡Stet lorem 
-
-
-// ----------------------------------------------
-
-
-
-// En este ejercicio deberás crear la Función isUniform que tome un Arreglo como Parámetro y devuelva true si todos los elementos del Arreglo son idénticos. De lo contrario, deberá devolver false.
-
-// ⚠️ Importante: Salvo que sea necesario, tu Función no debe recorrer todo el Arreglo si no es idéntico. Es decir, al momento que encuentre una diferencia deberá cortar.
-
-// Usá este código para testear tu solución:
-
-/* function isUniform(arr){
-    let length = arr.length
-    let elementoAnt = arr[0]
-    for(let i = 1; i < length; i++){
-        if (arr[i] == elementoAnt){
-            elementoAnt = arr[i]
-        }else{
-            return false
-        }  
+function iteradorObj(object) {
+//    for (const key in object) {
+//   console.log(object[key])
+//    }
+   for (const key in object) {
+    if (Object.hasOwnProperty.call(object, key)) {
+        const element = object[key];
+        console.log(element)
     }
-    return true
-};
-
-
-isUniform([1, 1, 1, 1]) // true
-isUniform([1, 2, 1, 1]) // false
-isUniform(["a", "b", "p"]) // false
-isUniform (["b", "b", "b"]) // true
- */
-
-
-// ----------------------------------------------
-// Biggest Smallest
-// En este ejercicio deberás:
-
-// 1- Escribir una Función llamada biggest_smallest que tenga un Argumento (que haga referencia a un Arreglo de números).
-
-// 2- Utilizar el método forEach() para encontar el número más grande y el número más chico.
-
-// 3- La función debe devolver por consola un Arreglo que contenga los números mínimo y máximo.
-
-// 💡 Ejemplo:
-
-// [111, 27, 31, 44, 101, 213, 33, 58]
-
-// Salida: 27, 213
-
-
-/* function biggest_smallest(arr) {
-    let nMayor = arr[0]
-    let nMenor = arr[0]
-    arr.forEach(element => {
-        if (element > nMayor) nMayor = element
-        if (element < nMenor) nMenor = element
-    });
-    return [nMenor,nMayor]
+   }
 } */
 
 
 
-// ----------------------------------------------
+
+// Ejercicio
+// 1 crear una funcion que reciva tres paramatros, nombre, precio y cantidad y 
+//retorne un objeto con las propiedades nombre, precio, cantidad y total
+
+ function createObj(nombre, precio, cantidad) {
+    let total = precio * cantidad
+    return {nombre, precio, cantidad, total}
+}
+// console.log(createObj("prod1", 399, 155)) 
+
+// ----------------------------------------------------------------------
 
 
-// Ejercicios: Filter
-// Ejercicio 1
-// Usando.filter(), completá la Función mayoresOIgualesA5 para que reciba un Arreglo de números y retorne un nuevo Arreglo(solo con números que sean mayores o iguales a 5).
-
-// let mayoresOIgualesA5 = arr =>  arr.filter(value =>value >= 5)
-
-// console.log(mayoresOIgualesA5([3, 6, 8, 21])); // [6, 8, 21]
+// 2 Aumentar La Nota
+// Tenés una lista de estudiantes con su desempeño académico actual. 
+//Querés subirle 2 puntos a aquellos que su nota sea mayor a 5. Recordá que la nota tampoco puede superar al 10.
 
 
-// ----------------------------------------------
+// Ejemplo:
 
+const estudiantes = [ { Estudiante: "Juan", nota: 6 },
+ { Estudiante: "Mario", nota: 8 },
+ { Estudiante: "Julia", nota: 10 },
+ { Estudiante: "Sofia", nota: 2 }]
 
-// Ejercicio 2
-// Tenemos un Arreglo de números en la Variable numbers.
-//Usando.filter(), creá un nuevo Arreglo que contenga solo los números pares.
+// salida=[ { Estudiante: "Juan", nota: 8 },
+// { Estudiante: "Mario", nota: 10 },
+// { Estudiante: "Julia", nota: 10 },
+// { Estudiante: "Sofia", nota: 2 },]
 
-/* let numeros = [3, 7, 6, 13, 2, 24, 99];
+function subirCalificacion(estudiantes){
+    estudiantes.map(element =>{
+        if(element["nota"] <=8 && element["nota"] > 5 ) element["nota"] += 2 
+        if(element["nota"] == 9) element["nota"] += 1 
+        return element
+    })
+    return estudiantes
+}
 
-let pares = numeros.filter(value => value % 2 == 0)
-
-console.log(pares); // [6, 2, 24] */
-
-
-
-// ----------------------------------------------
-// Ejercicio 3
-// Tenemos un Arreglo de palabras al azar en la Variable palabras.
-
-//Usando.filter(), deberás separar en un nuevo Arreglo aquellas palabras que no tengan más de 3 letras.
-
-/* let palabras = ['Et', 'Voluptua', 'Sed', 'At', 'Diam', 'Lorem']
-
-// const palabrasCortas = palabras.filter( word => word.length <= 3)
-
-    console.log(palabrasCortas);
-// [ 'Et', 'Sed', 'At' ]
- */
+// console.log(subirCalificacion(estudiantes))
 
 
 
-// ----------------------------------------------
-// Ejercicio 4
-// Tenemos un Arreglo en una Variable mix con varios elementos, de distintos tipos de datos.Usando.filter(), 
-//creá un nuevo Arreglo con todos los elementos que sean Strings y guardalo en la Variable soloStrings.
 
-const mix = [
-    'Ut vero.',
-    2,
-    function () { console.log('hola mundo!') },
-    56,
-    'Diam rebum nonumy et.',
-    true,
-    false,
-    'Kasd stet.',
-    'Sit et dolor.',
-    null,
-    null,
-    [1, 2, 3],
-    'Dolore.'
+// ----------------------------------------------------------------------
+// 3 Tenemos un Arreglo de Objetos, donde cada uno representa a una persona. 
+//Usando .filter(), creá un nuevo Arreglo con las personas que tengan más de 27 años.
+
+const personas = [ { nombre: 'Ana', edad: '28'},
+{ nombre: 'María', edad: '24' }, { nombre: 'José', edad: '31' }
 ];
+const personasConMasDe27 = (personas)=> personas.filter((personaEdad)=>Number(personaEdad.edad) >27)
 
-// Codeá la solución
 
-let soloStrings = mix.filter(string => typeof (string) == 'string')
+// console.log(personasConMasDe27(personas));
+// // [{ nombre: 'Ana', edad: '28' }, { nombre: 'José', edad: '31' }]
 
-// let soloStrings2 = mix.filter(value =>{
-//     return typeof(value) == 'string'
-// })
 
-// let soloStrings2 = mix.filter(function(value){
-//     return typeof(value) == 'string'
-// })
+// ----------------------------------------------------------------------
+// 4
 
-// let soloStrings2 = mixExample => {
-//     return mixExample.filter(value =>{
-//         return typeof(value)=='string'
-//     })
+// const actoresVocales = []
+
+const actoresPrincipales = ['Tom Hanks', 'Johnny Depp', 'Elizabeth Taylor', 'Morgan Freeman', 'Jennifer Aniston', 'Meryl Streep', 'Natalie Portman', 'Ashton Kutcher']
+const peliculas = []
+
+const actoresPrincipalesPorPelicula = {
+    "Titanic": "Leonardo DiCaprio",
+    "El Padrino": "Al Pacino",
+    "Matrix": "Keanu Reeves",
+    "Iron Man": "Robert Downey Jr",
+    "Soy leyenda": "Will Smith",
+    "Bastardos sin gloria": "Brad Pitt",
+    "Bastardos sin gloria Pruebas": "Brad Pitt"
+}
+// Iterá actoresPrincipales y llevá a actoresVocales aquellos cuyo nombre o apellido comience con una vocal.
+actoresVocales = arr =>{
+    const actoresVocales = arr.filter(fullName =>{
+        const name = fullName.split(" ");
+        const vocales = ["a","e","i","o","u"]
+    //    return vocales.indexOf(name[0][0].toLowerCase())>= 0 || vocales.indexOf(name[1][0].toLowerCase())>= 0 
+    return (name[0][0].toLowerCase().startsWith(...vocales) || name[1][0].toLowerCase().startsWith(...vocales) )
+    })
+    return actoresVocales
+} 
+console.log(actoresVocales(actoresPrincipales));
+// Iterá sobre el Objeto actoresPrincipalesPorPelicula y agregá sus nombres y apellidos al Arreglo actoresPrincipales.
+// for (const [key, value] of Object.entries(actoresPrincipalesPorPelicula)) {
+//     console.log(`${key} ${value}`) 
 // }
 
-let UpperCaseStrings = mix.filter((value) =>{
-    return typeof(value)=='string'
-}).map(value => value.toUpperCase())
+for (const key in actoresPrincipalesPorPelicula) {
+    actoresPrincipales.push(actoresPrincipalesPorPelicula[key])
+}  
+// console.log(actoresPrincipalesPorPelicula)
 
-// UpperCaseStrings.forEach(imprimir)
+// Iterá sobre el Objeto actoresPrincipalesPorPelicula y agregá los nombres de las películas en el Arreglo peliculas.
 
-// function imprimir(value){
-//     console.log(value);
-// }
+for (const key in actoresPrincipalesPorPelicula) {
+    peliculas.push(key)
+} 
+// console.log(peliculas)
+// Creá un Objeto vacíó llamado peliculaPorActor.
+// let peliculaPorActor={}
 
-// UpperCaseStrings.forEach(value=> console.log(value))
-// console.log(soloStrings);
-// console.log(soloStrings2);
-// Debería mostrar
-// [ 'Ut vero.', 'Diam rebum nonumy et.', 'Kasd stet.', 'Sit et dolor.', 'Dolore.' ]
-// ----------------------------------------------
-// ----------------------------------------------
-// ----------------------------------------------
-// ----------------------------------------------
-// ----------------------------------------------
-// ----------------------------------------------
-// ----------------------------------------------
-// ----------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Agregá Propiedades a este Objeto donde la clave sea el nombre del actor y el valor sea la película.
+// peliculaPorActor.nombre="Keanu Reeves"
+// peliculaPorActor.peliculas=["Matrix"]
+const peliculaPorActor = arrPeliculaActor =>{
+    const peliculaPorActor ={}
+    for (const pelicula in arrPeliculaActor) {
+        let peliculasRelacionadas = []
+        if (peliculaPorActor[arrPeliculaActor[pelicula]]){
+            peliculasRelacionadas = peliculaPorActor[arrPeliculaActor[pelicula]]
+            peliculasRelacionadas.push(pelicula)
+            console.log(peliculasRelacionadas)
+            peliculaPorActor[arrPeliculaActor[pelicula]] = peliculasRelacionadas
+        }else{
+            peliculaPorActor[arrPeliculaActor[pelicula]] = [pelicula]
+        }        
+    }
+    return peliculaPorActor
+}
+// console.log(peliculaPorActor(actoresPrincipalesPorPelicula))
+// Adaptá tu código para que pueda haber más de una película por cada actor.
 
 
-// let arr = [2, 3, 5, 7]
+// ----------------------------------------------------------------------
 
-// let arr2 = arr.map((element,a,x) => {
-// return element * this
-//     console.log(this)
-// }, 2);
+// 5
+// Posición Adecuada
+// Tenés un array de objetos con el nombre y la edad de distintas personas.
+// Este arreglo debe ser ordenado agregando una propiedad llamada posicion. Esta propiedad ubica a las personas en su posición adecuada, de menor a mayor.
 
-// let acumunador=[],0,"",{}
+// Ejemplo:
 
-// let arr2 = arr.reduce((acumulador, value) => {
-//     return acumulador * value
-// }, 3)
-// let arr3 = arr.reduce((acumulador, value) => {
-//     return acumulador + value
-// }, '')
-// let arr4 = arr.reduce((acumulador, value) => {
-//     acumulador.push(value * 3)
-//     return acumulador
-// }, [])
-// let arr5 = arr.reduce((acumulador, value) => {
-//     return acumulador * value
-// })
+/* const data = [ { nombre: "Alba", edad: 15 },
+  { nombre: "Estrella", edad: 30 },
+  { nombre: "Belen", edad: 20 },
+  { nombre: "Santiago", edad: 4 },
+  { nombre: "Katherine", edad: 55 }]
+  console.log(data.sort())
+  data=data.sort((a,b)=>{
+    if ( a.edad < b.edad ){
+        return -1;
+      }
+      if ( a.edad > b.edad ){
+        return 1;
+      }
+      return 0;
+})//Crack 
+array=array.map((element, index)=>({
+    ...element, 
+    "posicion":index
+})) */
 
 
+// Solución Erick
+const data = [
+    { nombre: "Alba", edad: 15 },
+    { nombre: "Estrella", edad: 30 },
+    { nombre: "Belen", edad: 20 },
+    { nombre: "Santiago", edad: 4 },
+    { nombre: "Katherine", edad: 55 },
+  ];
+  
+  const porEdad = data.slice(0);
+  porEdad.sort(function (a, b) {
+    return a.edad - b.edad;
+  });
+  
+  console.log(porEdad);
+  let index = 0;
+  porEdad.map((e) => {
+    e.posicion = index;
+    index++;
+    return e
+  });
+
+
+// Output:
+
+// [ { nombre: 'Santiago', edad: 4, posicion: 0 },
+//   { nombre: 'Alba', edad: 15, posicion: 1 },
+//   { nombre: 'Belen', edad: 20, posicion: 2 },
+//   { nombre: 'Estrella', edad: 30, posicion: 3 },
+//   { nombre: 'Katherine', edad: 55, posicion: 4 }]
+
+
+// ----------------------------------------------------------------------
+// 6
+// 🚀Software Factory
+// Pensemos que somos una software factory (empresa de desarrollo) y tenemos un cliente que tiene varios artículos de tecnología. Este cliente nos plantea dos necesidades para su negocio:
+
+// Conocer el valor total de cada artículo según sus cantidades (es decir, cuál es el valor total de todos sus televisores, por ejemplo).
+
+// Imprimir una lista que separe cada artículo con su respectiva suma total de valores en sus respectivos Objetos.
+
+// ¿Cómo realizar estos pedidos?
+
+// Crearás una nueva Función, en la cual su argumento haga referencia a un Arreglo de productos del ecommerce (el cual nuestro cliente ya nos brinda).
+
+let ecommerce = [
+{nombre: "Samsung TV", precio: 6000, articulos:10}, 
+{nombre: "DELL notebook", precio: 4000, articulos:30 },
+{nombre:"Auriculares Sony", precio: 1500, articulos:15},
+{nombre:"Monitor Philips", precio:12000, articulos:20},
+{nombre:"Teclado logitech", precio: 3000, articulos:5}]
+ 
+// La Función en general tendrá que devolver un nuevo Arreglo con Objetos que tengan el nombre de cada producto y el valor total de todos los artículos que se encuentren en la tienda.
+let auditoria = ecommerce.map(inventario =>{
+    let valorInventario = {}
+    valorInventario[inventario.nombre] = parseInt(inventario.precio) * parseInt(inventario.articulos)
+    return valorInventario
+})
+// console.log(auditoria)
+// ¿Qué debería devolver?
+// totalArtículos(ecommerce) 
+// // Debe retornar (5) [{…}, {…}, {…}, {…}, {…}]
+// {Samsung TV: 60000}
+// {DELL notebook: 120000}
+// {Auriculares Sony: 22500}
+// {Monitor Philips: 240000}
+// {Teclado logitech: 15000}
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
