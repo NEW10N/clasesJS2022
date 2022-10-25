@@ -1,77 +1,110 @@
 //ecommerce
 // Crear la clase User, con las propiedades nombre y apellido
-class User{
-    constructor(nombre, apellido){
-        this.nombre = nombre;
-        this.apellido = apellido;
+class User {
+    constructor(nombre, apellido) {
+        this.nombre = nombre,
+            this.apellido = apellido
     }
 }
 // crear la clase Businness que herede las propiedades de User y tenga la propiedad addmin=true
-class Businnes extends User{
-    constructor(nombre,apellido){
-        super(nombre,apellido);
-        this.admin = true
-        this.products = new Products()
+class Businness extends User {
+    constructor(nombre, apellido) {
+        super(nombre, apellido),
+            this.admin = true,
+            this.products = new Products()
     }
 
-
-    static showProducts(negocio){
-        return negocio.products.productos
+    static showProducts(negocio) {
+        return negocio.products.products
     }
-    
 }
 // crear la clase Buyer que extienda de User
-
-class Buyer extends User{
-    constructor(nombre, apellido){
-        super(nombre, apellido)
-        this.cart = new Cart()
+class Buyer extends User {
+    constructor(nombre, apellido) {
+        super(nombre, apellido);
+        this.carrito = new Cart()
     }
 }
-
 // crear la clase Cart que en su constructor tenga la propiedad carrito y que sea igual a un array vacio
-class Cart{
-    constructor(){
-        this.carrito = [];
+class Cart {
+    constructor() {
+        this.carrito = []
     }
+
+    showCarrito() {
+        return this.carrito
+    }
+
+    addCarrito(nombre, cantidad, negocio) {
+         let productoAgregar = Businness.showProducts(negocio).find(producto => producto.nombre.toLowerCase() == nombre.toLowerCase())
+         if (productoAgregar) this.carrito.push({nombre,cantidad})
+        return this.showCarrito()
+    }
+
+    deleteitemCarrito(nombre) {
+        this.carrito = this.carrito.filter(item => {
+            return item["nombre"].toLowerCase() != nombre.toLowerCase()
+        })
+        return this.showCarrito()
+    }
+
+    modifyItemCarrito(nombre, cantidad) {
+        this.carrito.map((element, index, array) => {
+            if (element["nombre"].toLowerCase() == nombre.toLowerCase()) {
+                element["cantidad"] = cantidad
+            }
+        })
+
+        return this.showCarrito()
+    }
+
+
 }
 // crear la clase Products que en su constructor tenga la propiedad products igual a un array vacio
-class Products{
-    constructor(){
-        this.productos = []
+class Products {
+    constructor() {
+        this.products = []
     }
 
-    addProducts(nombre,precio,cantidad){
-        let producto = {nombre, precio,cantidad}
-        this.productos.push(producto)
-        console.log(this.productos);
+    showProducts() {
+        return this.products
     }
 
-    deleteProduct(nombre){
-        this.productos = this.productos.filter(product =>{
-            return product.nombre.toLowerCase() != nombre.toLowerCase()
+    addProducts(nombre, precio, cantidad) {
+        this.products.push({ nombre, precio, cantidad })
+    }
+
+    deleteProduct(nombre) {
+        this.products = this.products.filter(value =>{
+            return value.nombre.toLowerCase() != nombre.toLowerCase()
         })
     }
-    
-    modProduct(nombre,precio,cantidad){
-        this.productos = this.productos.map((value,index,array) =>{
-            console.log(value);
-            // if (value["nombre"] == nombre){
-            //     value["precio"] = precio
-            //     value["cantidad"] = cantidad
-            // }
+
+    modifyPrice(nombre, precio) {
+        this.products.map((element, index, array) => {
+            if (element["nombre"].toLowerCase() == nombre.toLowerCase()) {
+                element["precio"] = precio
+            }
         })
+
+        return this.showProducts()
+    }
+    modifyQty(nombre, cantidad) {
+        this.products.map((element, index, array) => {
+            if (element["nombre"].toLowerCase() == nombre.toLowerCase()) {
+                element["cantidad"] = cantidad
+            }
+        })
+
+        return this.showProducts()
     }
 }
 // que Business tenga la propiedad products y que sea una instancia de la clase Products
-
-
 // que Business tenga un metodo estatico para poder mostrar todos los productos
+
 // que Buyer tenga la propiedad cart y que sea una instancia de la clase Cart
+
 // que Products tenga un metodo para poder agregar productos en forma de objeto con las propiedades nombre, precio y cantidad
-
-
-
 // que tenga el metodo para poder eliminar un producto
 // que tenga el metodo para poder modificar un producto 
 // que tenga el metodo para mostrar los productos
@@ -81,12 +114,14 @@ class Products{
 // que tenga el metodo para poder modificar un producto  del carrito
 // que tenga el metodo para mostrar los productos del carrito
 
-let OXXO = new Businnes("OXXO","S.A. de C.V.")
-console.log(OXXO);
 
-let catalogoOXXO = new Products()
+let oxxo = new Businness('OXXO', 'S.A. de C.V.');
+oxxo.products.addProducts("CocaCola", 18, 10);
+oxxo.products.addProducts("Vikingo", 25, 50);
+oxxo.products.addProducts("Sabritas", 20, 20);
+console.log(Businness.showProducts(oxxo));
 
-catalogoOXXO.addProducts("Pan Bimbo",20,30)
-console.log(catalogoOXXO.products);
-
+let Cesar = new Buyer("Cesar","Castro")
+Cesar.carrito.addCarrito("vikingo",2,oxxo)
+Cesar.carrito.addCarrito("cocacola",1,oxxo)
 
