@@ -1,9 +1,9 @@
-// import { hola, chau}  from "./saludar.js" Ejemplo
-import{} from "./api"
-import {form, nombre,p,img} from "./selectores.js"
-// import{} from "./submit"
+//Se crea archivo de selectores que se utilizan 
+import {body, button} from "./selectores.js"
+//Metodos del mode
+import {getMode, setMode} from "./mode.js"
+//Manejador del Evento Mode
+import handleModeEvent from "./handleModeEvent.js"
 
+handleModeEvent(body,button,getMode,setMode);
 
-// crear archivo selectores que contenga todos los selectores
-// crear archivo api que contenga el pedido a la api
-// crear archivo submit que realice el evento y el render dela peticion

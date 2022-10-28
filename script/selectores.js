@@ -1,16 +1,5 @@
 
-// const selectorxs = selectores()
-// console.log(selectorxs);
-// const form = document.querySelector("form")
-// const nombre = document.querySelector("#nombre")
-// const p = document.querySelector("p")
-// const img = document.querySelector("img")
+const body =  document.querySelector("body")
+const button = document.querySelector("button")
 
-
-export const input = document.querySelector("#inputName")
-export const btn = document.querySelector(".btn")
-export const namePoke = document.querySelector(".namePoke")
-export const info = document.querySelector(".info")
-export const form = document.querySelector("form")
-export const div = document.querySelector(".pokemon")
-export const img = document.querySelector("img")
+export {body, button}
